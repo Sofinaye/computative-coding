@@ -1,0 +1,14 @@
+def productExceptSelf(self, nums):
+        total = 1
+        count = 0
+        answer = []
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if count == j:
+                    continue
+                else:
+                    total = total * nums[j]
+            answer.append(total)
+            count += 1
+            total = 1
+        return answer
