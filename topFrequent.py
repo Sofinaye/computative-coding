@@ -1,13 +1,6 @@
 def topKFrequent(self, nums, k):
-        obj = {}
-        arr = []
-        freq = [[] for i in range(len(nums) + 1)]
+        occurences = {}
         for num in nums:
-            obj[num] = obj.get(num,0) +1
-        for key, value in obj.items():
-            freq[value].append(key)
-        for i in range(len(freq) - 1, 0, -1):
-            for n in freq[i]:
-                arr.append(n)
-                if len(arr) == k:
-                    return arr
+            occurences[num] = occurences.get(num, 0) + 1
+        sorted_values = [i for i in sorted(occurences.items(), key=lambda x: x[1], reverse=True)]
+        return [sorted_values[i][0] for i in range(k)]
