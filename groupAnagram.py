@@ -1,12 +1,9 @@
 def groupAnagrams(self, strs):
-        anagrams = {}
-    
+        d = {}
         for word in strs:
-            sorted_word = ''.join(sorted(word))
-            if sorted_word in anagrams:
-                anagrams[sorted_word].append(word)
+            sorted_word = "".join(sorted(word))
+            if sorted_word in d:
+                d[sorted_word].append(word)
             else:
-                anagrams[sorted_word] = [word]
-        result = list(anagrams.values())
-        
-        return result
+                d[sorted_word] = [word]
+        return d.values()
