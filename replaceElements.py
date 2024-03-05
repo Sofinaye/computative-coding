@@ -1,10 +1,8 @@
 def replaceElements(self, arr):
-      n = len(arr)
-      right = -1
+        temp_max = -1
+        for i in range(len(arr) - 1, -1, -1):
+            new_max = max(arr[i], temp_max)
+            arr[i] = temp_max
+            temp_max = new_max
 
-      for i in range(n - 1, -1, -1):
-          current = arr[i]
-          arr[i] = right
-          right = max(right, current)
-
-      return arr
+        return arr
